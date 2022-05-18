@@ -1,0 +1,10 @@
+- hosts: localhost
+  gather_facts: yes
+  remote_user: ansible
+  become: true
+  become_method: sudo
+  collections:
+    - community.general
+
+  roles:
+    - rhel8STIG
