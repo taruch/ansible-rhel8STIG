@@ -305,28 +305,7 @@ Satisfies: SRG-OS-000066-GPOS-00034, SRG-OS-000384-GPOS-00167&lt;/VulnDiscussion
 
 Obtain a valid copy of the DoD root CA file from the PKI CA certificate bundle at cyber.mil and copy into the following file:
 
-/etc/sssd/pki/sssd_auth_ca_db.pem</fixtext><fix id="F-32873r809269_fix" /><check system="C-32898r567433_chk"><check-content-ref href="Red_Hat_Enterprise_Linux_8_STIG.xml" name="M" /><check-content>Verify RHEL 8 for PKI-based authentication has valid certificates by constructing a certification path (which includes status information) to an accepted trust anchor.
-
-Check that the system has a valid DoD root CA installed with the following command:
-
-$ sudo openssl x509 -text -in /etc/sssd/pki/sssd_auth_ca_db.pem
-
-Certificate:
-   Data:
-      Version: 3 (0x2)
-      Serial Number: 1 (0x1)
-      Signature Algorithm: sha256WithRSAEncryption
-      Issuer: C = US, O = U.S. Government, OU = DoD, OU = PKI, CN = DoD Root CA 3
-      Validity
-         Not Before: Mar 20 18:46:41 2012 GMT
-         Not After   : Dec 30 18:46:41 2029 GMT
-      Subject: C = US, O = U.S. Government, OU = DoD, OU = PKI, CN = DoD Root CA 3
-      Subject Public Key Info:
-         Public Key Algorithm: rsaEncryption
-
-If the root ca file is not a DoD-issued certificate with a valid date and installed in the /etc/sssd/pki/sssd_auth_ca_db.pem location, this is a finding.</check-content></check></Rule></Group><Group id="V-230230"><title>SRG-OS-000067-GPOS-00035</title><description>&lt;GroupDescription&gt;&lt;/GroupDescription&gt;</description><Rule id="SV-230230r627750_rule" weight="10.0" severity="medium"><version>RHEL-08-010100</version><title>RHEL 8, for certificate-based authentication, must enforce authorized access to the corresponding private key.</title><description>&lt;VulnDiscussion&gt;If an unauthorized user obtains access to a private key without a passcode, that user would have unauthorized access to any system where the associated public key has been installed.&lt;/VulnDiscussion&gt;&lt;FalsePositives&gt;&lt;/FalsePositives&gt;&lt;FalseNegatives&gt;&lt;/FalseNegatives&gt;&lt;Documentable&gt;false&lt;/Documentable&gt;&lt;Mitigations&gt;&lt;/Mitigations&gt;&lt;SeverityOverrideGuidance&gt;&lt;/SeverityOverrideGuidance&gt;&lt;PotentialImpacts&gt;&lt;/PotentialImpacts&gt;&lt;ThirdPartyTools&gt;&lt;/ThirdPartyTools&gt;&lt;MitigationControl&gt;&lt;/MitigationControl&gt;&lt;Responsibility&gt;&lt;/Responsibility&gt;&lt;IAControls&gt;&lt;/IAControls&gt;</description><reference><dc:title>DPMS Target Red Hat Enterprise Linux 8</dc:title><dc:publisher>DISA</dc:publisher><dc:type>DPMS Target</dc:type><dc:subject>Red Hat Enterprise Linux 8</dc:subject><dc:identifier>2921</dc:identifier></reference><ident system="http://cyber.mil/cci">CCI-000186</ident><fixtext fixref="F-32874r567437_fix">Create a new private and public key pair that utilizes a passcode with the following command:
-
-$ sudo ssh-keygen -n [passphrase]</fixtext><fix id="F-32874r567437_fix" /><check system="C-32899r567436_chk"><check-content-ref href="Red_Hat_Enterprise_Linux_8_STIG.xml" name="M" /><check-content>Verify the SSH private key files have a passcode.
+/etc/sssd/pki/sssd_auth_ca_db.pem</fixtext><fix id="F-32874r567437_fix" /><check system="C-32899r567436_chk"><check-content-ref href="Red_Hat_Enterprise_Linux_8_STIG.xml" name="M" /><check-content>Verify the SSH private key files have a passcode.
 
 For each private key stored on the system, use the following command:
 
