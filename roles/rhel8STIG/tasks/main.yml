@@ -171,11 +171,11 @@
   when:
     - rhel8STIG_stigrule_230270_Manage
 # R-230273 RHEL-08-010390
-- name: stigrule_230273_esc
-  yum:
-    name: esc
-    state: "{{ rhel8STIG_stigrule_230273_esc_State }}"
-  when: rhel8STIG_stigrule_230273_Manage
+#- name: stigrule_230273_esc
+#  yum:
+#    name: esc
+#    state: "{{ rhel8STIG_stigrule_230273_esc_State }}"
+#  when: rhel8STIG_stigrule_230273_Manage
 # R-230273 RHEL-08-010390
 - name: stigrule_230273_openssl_pkcs11
   yum:
