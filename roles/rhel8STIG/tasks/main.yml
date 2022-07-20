@@ -126,50 +126,50 @@
   when:
     - rhel8STIG_stigrule_230265_Manage
 # R-230266 RHEL-08-010372
-- name: stigrule_230266__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^kernel.kexec_load_disabled = '
-    line: "{{ rhel8STIG_stigrule_230266__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230266_Manage
-# R-230267 RHEL-08-010373
-- name: stigrule_230267__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^fs.protected_symlinks = '
-    line: "{{ rhel8STIG_stigrule_230267__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230267_Manage
-# R-230268 RHEL-08-010374
-- name: stigrule_230268__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^fs.protected_hardlinks = '
-    line: "{{ rhel8STIG_stigrule_230268__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230268_Manage
-# R-230269 RHEL-08-010375
-- name: stigrule_230269__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^kernel.dmesg_restrict = '
-    line: "{{ rhel8STIG_stigrule_230269__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230269_Manage
-# R-230270 RHEL-08-010376
-- name: stigrule_230270__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^kernel.perf_event_paranoid = '
-    line: "{{ rhel8STIG_stigrule_230270__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230270_Manage
+#- name: stigrule_230266__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^kernel.kexec_load_disabled = '
+#    line: "{{ rhel8STIG_stigrule_230266__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230266_Manage
+## R-230267 RHEL-08-010373
+#- name: stigrule_230267__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^fs.protected_symlinks = '
+#    line: "{{ rhel8STIG_stigrule_230267__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230267_Manage
+## R-230268 RHEL-08-010374
+#- name: stigrule_230268__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^fs.protected_hardlinks = '
+#    line: "{{ rhel8STIG_stigrule_230268__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230268_Manage
+## R-230269 RHEL-08-010375
+#- name: stigrule_230269__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^kernel.dmesg_restrict = '
+#    line: "{{ rhel8STIG_stigrule_230269__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230269_Manage
+## R-230270 RHEL-08-010376
+#- name: stigrule_230270__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^kernel.perf_event_paranoid = '
+#    line: "{{ rhel8STIG_stigrule_230270__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230270_Manage
 # R-230273 RHEL-08-010390
 #- name: stigrule_230273_esc
 #  yum:
@@ -183,11 +183,11 @@
     state: "{{ rhel8STIG_stigrule_230273_openssl_pkcs11_State }}"
   when: rhel8STIG_stigrule_230273_Manage
 # R-230275 RHEL-08-010410
-- name: stigrule_230275_opensc
-  yum:
-    name: opensc
-    state: "{{ rhel8STIG_stigrule_230275_opensc_State }}"
-  when: rhel8STIG_stigrule_230275_Manage
+#- name: stigrule_230275_opensc
+#  yum:
+#    name: opensc
+#    state: "{{ rhel8STIG_stigrule_230275_opensc_State }}"
+#  when: rhel8STIG_stigrule_230275_Manage
 # R-230280 RHEL-08-010430
 - name: stigrule_230280__etc_sysctl_d_99_sysctl_conf
   lineinfile:
@@ -433,11 +433,11 @@
     - rhel8STIG_stigrule_230347_Manage
     - "'dconf' in packages"
 # R-230348 RHEL-08-020040
-- name: stigrule_230348_ensure_tmux_is_installed
-  yum:
-    name: tmux
-    state: "{{ rhel8STIG_stigrule_230348_ensure_tmux_is_installed_State }}"
-  when: rhel8STIG_stigrule_230348_Manage
+#- name: stigrule_230348_ensure_tmux_is_installed
+#  yum:
+#    name: tmux
+#    state: "{{ rhel8STIG_stigrule_230348_ensure_tmux_is_installed_State }}"
+#  when: rhel8STIG_stigrule_230348_Manage
 # R-230348 RHEL-08-020040
 - name: stigrule_230348__etc_tmux_conf
   lineinfile:
@@ -1516,23 +1516,23 @@
     - rhel8STIG_stigrule_230544_Manage
     - cmd_result.rc == 0
 # R-230545 RHEL-08-040281
-- name: stigrule_230545__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^kernel.unprivileged_bpf_disabled = '
-    line: "{{ rhel8STIG_stigrule_230545__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230545_Manage
-# R-230546 RHEL-08-040282
-- name: stigrule_230546__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^kernel.yama.ptrace_scope = '
-    line: "{{ rhel8STIG_stigrule_230546__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230546_Manage
+#- name: stigrule_230545__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^kernel.unprivileged_bpf_disabled = '
+#    line: "{{ rhel8STIG_stigrule_230545__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230545_Manage
+## R-230546 RHEL-08-040282
+#- name: stigrule_230546__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^kernel.yama.ptrace_scope = '
+#    line: "{{ rhel8STIG_stigrule_230546__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230546_Manage
 # R-230546 RHEL-08-040282
 - name: stigrule_230546_kernel_yama_ptrace_scope
   sysctl:
@@ -1541,23 +1541,23 @@
   when:
     - rhel8STIG_stigrule_230546_Manage
 # R-230547 RHEL-08-040283
-- name: stigrule_230547__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^kernel.kptr_restrict = '
-    line: "{{ rhel8STIG_stigrule_230547__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230547_Manage
-# R-230548 RHEL-08-040284
-- name: stigrule_230548__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^user.max_user_namespaces = '
-    line: "{{ rhel8STIG_stigrule_230548__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230548_Manage
+#- name: stigrule_230547__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^kernel.kptr_restrict = '
+#    line: "{{ rhel8STIG_stigrule_230547__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230547_Manage
+## R-230548 RHEL-08-040284
+#- name: stigrule_230548__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^user.max_user_namespaces = '
+#    line: "{{ rhel8STIG_stigrule_230548__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230548_Manage
 # R-230548 RHEL-08-040284
 - name: stigrule_230548_user_max_user_namespaces
   sysctl:
@@ -1566,14 +1566,14 @@
   when:
     - rhel8STIG_stigrule_230548_Manage
 # R-230549 RHEL-08-040285
-- name: stigrule_230549__etc_sysctl_d_99_sysctl_conf
-  lineinfile:
-    path: /etc/sysctl.d/99-sysctl.conf
-    regexp: '^net.ipv4.conf.all.rp_filter = '
-    line: "{{ rhel8STIG_stigrule_230549__etc_sysctl_d_99_sysctl_conf_Line }}"
-    create: yes
-  when:
-    - rhel8STIG_stigrule_230549_Manage
+#- name: stigrule_230549__etc_sysctl_d_99_sysctl_conf
+#  lineinfile:
+#    path: /etc/sysctl.d/99-sysctl.conf
+#    regexp: '^net.ipv4.conf.all.rp_filter = '
+#    line: "{{ rhel8STIG_stigrule_230549__etc_sysctl_d_99_sysctl_conf_Line }}"
+#    create: yes
+#  when:
+#    - rhel8STIG_stigrule_230549_Manage
 # R-230555 RHEL-08-040340
 - name: stigrule_230555_X11Forwarding
   lineinfile:
@@ -1645,11 +1645,11 @@
     - rhel8STIG_stigrule_244525_Manage
     - "'openssh-server' in packages"
 # R-244527 RHEL-08-010472
-- name: stigrule_244527_rng_tools
-  yum:
-    name: rng-tools
-    state: "{{ rhel8STIG_stigrule_244527_rng_tools_State }}"
-  when: rhel8STIG_stigrule_244527_Manage
+#- name: stigrule_244527_rng_tools
+#  yum:
+#    name: rng-tools
+#    state: "{{ rhel8STIG_stigrule_244527_rng_tools_State }}"
+#  when: rhel8STIG_stigrule_244527_Manage
 # R-244528 RHEL-08-010522
 - name: stigrule_244528_GSSAPIAuthentication
   lineinfile:
@@ -1685,11 +1685,11 @@
     - rhel8STIG_stigrule_244536_Manage
     - "'dconf' in packages"
 # R-244537 RHEL-08-020039
-- name: stigrule_244537_tmux
-  yum:
-    name: tmux
-    state: "{{ rhel8STIG_stigrule_244537_tmux_State }}"
-  when: rhel8STIG_stigrule_244537_Manage
+#- name: stigrule_244537_tmux
+#  yum:
+#    name: tmux
+#    state: "{{ rhel8STIG_stigrule_244537_tmux_State }}"
+#  when: rhel8STIG_stigrule_244537_Manage
 # R-244538 RHEL-08-020081
 - name: stigrule_244538__etc_dconf_db_local_d_locks_session_idle_delay
   lineinfile:

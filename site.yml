@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: rhel8-demo.local
   gather_facts: no
   remote_user: ansible
   become: yes
