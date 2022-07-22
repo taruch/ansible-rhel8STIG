@@ -1,0 +1,21 @@
+- hosts: all
+  gather_facts: no
+  remote_user: ansible
+  become: yes
+  become_method: sudo
+
+  tasks:
+    - name: stigrule_230296_PermitRootLogin
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: '^\s*(?i)PermitRootLogin\s+'
+        line: "PermitRootLogin yes"
+      notify: ssh_restart
+
+  handlers:
+    - name: ssh_restart
+      service:
+        name: sshd
+        state: restarted
+
+
