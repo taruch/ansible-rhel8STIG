@@ -1,6 +1,6 @@
 - hosts: all
   gather_facts: no
-  remote_user: ansible
+  #remote_user: ansible
   become: yes
   become_method: sudo
   roles:
