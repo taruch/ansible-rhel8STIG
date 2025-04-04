@@ -49,6 +49,7 @@
  
     - name: Set change Number
       ansible.builtin.set_stats:
+        per_host: true
         data:
           job_url: "{{ job_url }}"
           change_fact: "{{ change_fact }}"
