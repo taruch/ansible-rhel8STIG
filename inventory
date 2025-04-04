@@ -1,1 +1,3 @@
-rhel8-demo.local
+[myhosts]
+aws_rhel8 ansible_host=ec2-3-145-89-54.us-east-2.compute.amazonaws.com ansible_user=ec2-user
+ftw_rhel8 ansible_host=ec2-3-144-86-113.us-east-2.compute.amazonaws.com ansible_user=ec2-user

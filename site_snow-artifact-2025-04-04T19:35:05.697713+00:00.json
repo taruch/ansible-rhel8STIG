@@ -1,0 +1,214 @@
+{
+    "plays": [
+        {
+            "__play_name": "DISA RHEL8 STIG from Jan 2025",
+            "name": "DISA RHEL8 STIG from Jan 2025",
+            "pattern": "all",
+            "play": "DISA RHEL8 STIG from Jan 2025",
+            "play_pattern": "all",
+            "play_uuid": "2e7ca9a4-bf66-80a2-679d-000000000002",
+            "playbook": "/home/truch/Ansible-Repos/ansible-rhel8STIG/site_snow.yml",
+            "playbook_uuid": "9a4c1c5b-8ae2-4641-a1dc-dea7aae31b28",
+            "tasks": [
+                {
+                    "__changed": false,
+                    "__duration": "10s",
+                    "__host": "ec2-18-227-190-101.us-east-2.compute.amazonaws.com",
+                    "__number": 0,
+                    "__result": "Unreachable",
+                    "__task": "Gathering Facts",
+                    "__task_action": "gather_facts",
+                    "duration": 10.069723,
+                    "end": "2025-04-04T19:35:05.465721+00:00",
+                    "host": "ec2-18-227-190-101.us-east-2.compute.amazonaws.com",
+                    "play": "DISA RHEL8 STIG from Jan 2025",
+                    "play_pattern": "all",
+                    "play_uuid": "2e7ca9a4-bf66-80a2-679d-000000000002",
+                    "playbook": "/home/truch/Ansible-Repos/ansible-rhel8STIG/site_snow.yml",
+                    "playbook_uuid": "9a4c1c5b-8ae2-4641-a1dc-dea7aae31b28",
+                    "remote_addr": "ec2-18-227-190-101.us-east-2.compute.amazonaws.com",
+                    "res": {
+                        "changed": false,
+                        "msg": "Failed to connect to the host via ssh: ssh: connect to host ec2-18-227-190-101.us-east-2.compute.amazonaws.com port 22: Connection timed out",
+                        "unreachable": true
+                    },
+                    "resolved_action": "ansible.builtin.gather_facts",
+                    "start": "2025-04-04T19:34:55.395998+00:00",
+                    "task": "Gathering Facts",
+                    "task_action": "gather_facts",
+                    "task_args": "",
+                    "task_path": "/home/truch/Ansible-Repos/ansible-rhel8STIG/site_snow.yml:1",
+                    "task_uuid": "2e7ca9a4-bf66-80a2-679d-00000000000e",
+                    "uuid": "f058e2d0-0add-4111-8bbf-eddd259c8c79"
+                }
+            ],
+            "uuid": "2e7ca9a4-bf66-80a2-679d-000000000002"
+        }
+    ],
+    "settings_entries": {
+        "ansible-navigator": {
+            "ansible": {
+                "cmdline": "-vv --check",
+                "config": {
+                    "help": false
+                },
+                "doc": {
+                    "help": false,
+                    "plugin": {
+                        "type": "module"
+                    }
+                },
+                "inventory": {
+                    "entries": [
+                        "/home/truch/Ansible-Repos/ansible-rhel8STIG/inventory"
+                    ],
+                    "help": false
+                },
+                "playbook": {
+                    "help": false,
+                    "path": "/home/truch/Ansible-Repos/ansible-rhel8STIG/site_snow.yml"
+                }
+            },
+            "ansible-builder": {
+                "help": false,
+                "workdir": "/home/truch/Ansible-Repos/ansible-rhel8STIG"
+            },
+            "ansible-runner": {
+                "job-events": false
+            },
+            "app": "run",
+            "collection-doc-cache-path": "/home/truch/.cache/ansible-navigator/collection_doc_cache.db",
+            "color": {
+                "enable": true,
+                "osc4": true
+            },
+            "editor": {
+                "command": "/usr/bin/nano {filename}",
+                "console": true
+            },
+            "enable-prompts": false,
+            "exec": {
+                "command": "/bin/bash",
+                "shell": true
+            },
+            "execution-environment": {
+                "container-engine": "podman",
+                "enabled": true,
+                "image": "registry.redhat.io/ansible-automation-platform-24/ee-supported-rhel8:latest",
+                "pull": {
+                    "policy": "tag"
+                }
+            },
+            "format": "yaml",
+            "images": {
+                "details": [
+                    "everything"
+                ]
+            },
+            "logging": {
+                "append": true,
+                "file": "/home/truch/Ansible-Repos/ansible-rhel8STIG/ansible-navigator.log",
+                "level": "warning"
+            },
+            "mode": "stdout",
+            "playbook-artifact": {
+                "enable": true,
+                "save-as": "{playbook_dir}/{playbook_name}-artifact-{time_stamp}.json"
+            },
+            "settings": {
+                "effective": false,
+                "sample": false,
+                "schema": "json",
+                "sources": false
+            },
+            "time-zone": "UTC"
+        }
+    },
+    "settings_sources": {
+        "ansible-navigator.ansible-builder.help": "Defaults",
+        "ansible-navigator.ansible-builder.workdir": "Defaults",
+        "ansible-navigator.ansible-lint.config": "Not set",
+        "ansible-navigator.ansible-lint.lintables": "Not set",
+        "ansible-navigator.ansible-runner.artifact-dir": "Not set",
+        "ansible-navigator.ansible-runner.job-events": "Defaults",
+        "ansible-navigator.ansible-runner.rotate-artifacts-count": "Not set",
+        "ansible-navigator.ansible-runner.timeout": "Not set",
+        "ansible-navigator.ansible.cmdline": "Command line",
+        "ansible-navigator.ansible.config.help": "Defaults",
+        "ansible-navigator.ansible.config.path": "Not set",
+        "ansible-navigator.ansible.doc.help": "Defaults",
+        "ansible-navigator.ansible.doc.plugin.name": "Not set",
+        "ansible-navigator.ansible.doc.plugin.type": "Defaults",
+        "ansible-navigator.ansible.inventory.entries": "Command line",
+        "ansible-navigator.ansible.inventory.help": "Defaults",
+        "ansible-navigator.ansible.playbook.help": "Defaults",
+        "ansible-navigator.ansible.playbook.path": "Command line",
+        "ansible-navigator.app": "Command line",
+        "ansible-navigator.collection-doc-cache-path": "Defaults",
+        "ansible-navigator.color.enable": "Defaults",
+        "ansible-navigator.color.osc4": "Defaults",
+        "ansible-navigator.editor.command": "Defaults",
+        "ansible-navigator.editor.console": "Defaults",
+        "ansible-navigator.enable-prompts": "Defaults",
+        "ansible-navigator.exec.command": "Defaults",
+        "ansible-navigator.exec.shell": "Defaults",
+        "ansible-navigator.execution-environment.container-engine": "Automatically determined",
+        "ansible-navigator.execution-environment.container-options": "Not set",
+        "ansible-navigator.execution-environment.enabled": "Defaults",
+        "ansible-navigator.execution-environment.environment-variables.pass": "Not set",
+        "ansible-navigator.execution-environment.environment-variables.set": "Not set",
+        "ansible-navigator.execution-environment.image": "Command line",
+        "ansible-navigator.execution-environment.pull.arguments": "Not set",
+        "ansible-navigator.execution-environment.pull.policy": "Defaults",
+        "ansible-navigator.execution-environment.volume-mounts": "Not set",
+        "ansible-navigator.format": "Defaults",
+        "ansible-navigator.images.details": "Defaults",
+        "ansible-navigator.inventory-columns": "Not set",
+        "ansible-navigator.logging.append": "Defaults",
+        "ansible-navigator.logging.file": "Defaults",
+        "ansible-navigator.logging.level": "Defaults",
+        "ansible-navigator.mode": "Command line",
+        "ansible-navigator.playbook-artifact.enable": "Defaults",
+        "ansible-navigator.playbook-artifact.replay": "Not set",
+        "ansible-navigator.playbook-artifact.save-as": "Defaults",
+        "ansible-navigator.settings.effective": "Defaults",
+        "ansible-navigator.settings.sample": "Defaults",
+        "ansible-navigator.settings.schema": "Defaults",
+        "ansible-navigator.settings.sources": "Defaults",
+        "ansible-navigator.time-zone": "Defaults",
+        "settings_file_path": "None",
+        "settings_file_source": "None"
+    },
+    "status": "failed",
+    "status_color": 9,
+    "stdout": [
+        "\u001b[0;34mansible-playbook [core 2.15.13]\u001b[0m",
+        "\u001b[0;34m  config file = /home/truch/Ansible-Repos/ansible-rhel8STIG/ansible.cfg\u001b[0m",
+        "\u001b[0;34m  configured module search path = ['/home/runner/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']\u001b[0m",
+        "\u001b[0;34m  ansible python module location = /usr/lib/python3.9/site-packages/ansible\u001b[0m",
+        "\u001b[0;34m  ansible collection location = /home/runner/.ansible/collections:/usr/share/ansible/collections\u001b[0m",
+        "\u001b[0;34m  executable location = /usr/bin/ansible-playbook\u001b[0m",
+        "\u001b[0;34m  python version = 3.9.20 (main, Sep 26 2024, 20:59:47) [GCC 8.5.0 20210514 (Red Hat 8.5.0-22)] (/usr/bin/python3.9)\u001b[0m",
+        "\u001b[0;34m  jinja version = 3.1.6\u001b[0m",
+        "\u001b[0;34m  libyaml = True\u001b[0m",
+        "\u001b[0;34mUsing /home/truch/Ansible-Repos/ansible-rhel8STIG/ansible.cfg as config file\u001b[0m",
+        "\u001b[1;35m[WARNING]: Skipping callback plugin 'stig_xml', unable to load\u001b[0m",
+        "\u001b[0;34mSkipping callback 'awx_display', as we already have a stdout callback.\u001b[0m",
+        "\u001b[0;34mSkipping callback 'default', as we already have a stdout callback.\u001b[0m",
+        "\u001b[0;34mSkipping callback 'minimal', as we already have a stdout callback.\u001b[0m",
+        "\u001b[0;34mSkipping callback 'oneline', as we already have a stdout callback.\u001b[0m",
+        "",
+        "PLAYBOOK: site_snow.yml ********************************************************",
+        "\u001b[0;34m1 plays in /home/truch/Ansible-Repos/ansible-rhel8STIG/site_snow.yml\u001b[0m",
+        "",
+        "PLAY [DISA RHEL8 STIG from Jan 2025] *******************************************",
+        "",
+        "TASK [Gathering Facts] *********************************************************",
+        "\u001b[1;30mtask path: /home/truch/Ansible-Repos/ansible-rhel8STIG/site_snow.yml:1\u001b[0m",
+        "\u001b[1;31mfatal: [ec2-18-227-190-101.us-east-2.compute.amazonaws.com]: UNREACHABLE! => {\"changed\": false, \"msg\": \"Failed to connect to the host via ssh: ssh: connect to host ec2-18-227-190-101.us-east-2.compute.amazonaws.com port 22: Connection timed out\", \"unreachable\": true}\u001b[0m",
+        "",
+        "PLAY RECAP *********************************************************************",
+        "\u001b[0;31mec2-18-227-190-101.us-east-2.compute.amazonaws.com\u001b[0m : ok=0    changed=0    \u001b[1;31munreachable=1   \u001b[0m failed=0    skipped=0    rescued=0    ignored=0   "
+    ],
+    "version": "2.0.0"
+}
