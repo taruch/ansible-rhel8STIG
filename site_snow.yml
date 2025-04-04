@@ -52,10 +52,14 @@
         msg: change_fact is true
       when: change_fact is defined and change_fact == true
 
-    - name: Set change Number
+    # - name: Set change Number
+    #   ansible.builtin.set_stats:
+    #     per_host: true
+    #     data:
+    #       job_url: "{{ job_url }}"
+    #       change_fact: "{{ change_fact }}"
+    - name: Set change status per host to pass to next playbook
       ansible.builtin.set_stats:
-        per_host: true
         data:
-          job_url: "{{ job_url }}"
-          change_fact: "{{ change_fact }}"
-
+          change_per_host_agg_true: "{{ change_per_host_agg_true | default({}) | combine({ inventory_hostname : { 'change_fact' : change_fact }}) }}"
+        aggregate: true
