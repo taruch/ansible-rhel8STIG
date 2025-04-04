@@ -47,6 +47,11 @@
       ansible.builtin.pause:
         seconds: 20
  
+    - name: Fail if variable change_fact is true
+      ansible.builtin.fail:
+        msg: change_fact is true
+      when: change_fact is defined and change_fact == true
+
     - name: Set change Number
       ansible.builtin.set_stats:
         per_host: true
