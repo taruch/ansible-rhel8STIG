@@ -1,0 +1,80 @@
+- name: DISA RHEL8 STIG from Jan 2025
+  hosts: "{{ _hosts | default('all') }}"
+  gather_facts: false
+  become: true
+  vars:
+    change_fact: false
+
+  tasks:
+
+    - name: List running jobs for the network_STIG_change.yml playbook
+      ansible.controller.job_list:
+        status: running
+        query: {"name": "RHEL8 STIG - Validate"}
+      check_mode: false
+      run_once: true
+      become: false
+      delegate_to: localhost
+      register: STIG_job
+
+    - name: Derive the Job ID for the currently running job template
+      when: STIG_job
+      ansible.builtin.set_fact:
+        job_id: "{{ STIG_job.results[0].id }}"
+      check_mode: false
+      run_once: true
+      delegate_to: localhost
+
+    - name: Derive the URL for the currently running job template
+      when: STIG_job
+      ansible.builtin.set_fact:
+        job_url: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST', default=undef()) }}/execution/jobs/playbook/{{ STIG_job.results[0].id }}/output"
+      check_mode: false
+      run_once: true
+      delegate_to: localhost
+
+    - name: Collect only facts returned by facter
+      ansible.builtin.setup:
+        gather_subset:
+          - '!all'
+          - '!min'
+          - 'distribution'
+          - 'distribution_major_version'
+        filter:
+          - 'ansible_distribution'
+          - 'ansible_distribution_major_version'
+
+    - name: Run DISA RHEL8 STIG
+      when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
+      vars:
+        ignore_all_errors: True
+      ansible.builtin.include_role:
+        name: rhel8STIG
+      register: rhel8_stig_reg
+
+    - name: Force all notified handlers to run at this point, not waiting for normal sync points
+      ansible.builtin.meta: flush_handlers
+      check_mode: false
+
+    - name: Debug
+      ansible.builtin.debug:
+        var: change_fact
+      check_mode: false
+
+    - name: Pause for 20 seconds to wait for handlers to flush
+      ansible.builtin.pause:
+        seconds: 20
+
+    - name: Set change status per host to pass to next playbook
+      when: change_fact == true
+      ansible.builtin.set_stats:
+        data:
+          _hosts: "{{ _hosts | default([]) + [inventory_hostname] }}"
+          job_url: "{{ job_url }}"
+          job_id: "{{ job_id }}"
+        aggregate: true
+
+    # - name: Fail if variable change_fact is true
+    #   ansible.builtin.fail:
+    #     msg: change_fact is true
+    #   when: change_fact is defined and change_fact == true
