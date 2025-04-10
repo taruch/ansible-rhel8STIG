@@ -1,0 +1,7 @@
+- name: Set stat for follow-on run
+  ansible.builtin.set_fact:
+    change_fact: true
+- name: Debug that handler has run
+  ansible.builtin.debug:
+    msg: "Set Change Handler has run"
+
