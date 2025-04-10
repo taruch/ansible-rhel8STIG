@@ -1,3 +1,9 @@
+- name: set_change
+  #ansible.builtin.set_fact:
+  #  change_fact: true
+  #debug:
+  #  msg: "Change happens"
+  ansible.builtin.include_tasks: tasks/change_test.yml
 - name: dconf_update
   command: dconf update
 - name: auditd_restart
