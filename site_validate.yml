@@ -58,7 +58,7 @@
         seconds: 20
 
     - name: Add data to pass to next playbook
-      when: check_mode == true
+      when: change_fact == true
       ansible.builtin.set_stats:
         data:
           _hosts: "{{ _hosts | default([]) + [inventory_hostname] }}"
