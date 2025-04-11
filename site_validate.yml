@@ -33,16 +33,16 @@
       run_once: true
       delegate_to: localhost
 
-    - name: Collect only facts returned by facter
-      ansible.builtin.setup:
-        gather_subset:
-          - '!all'
-          - '!min'
-          - 'distribution'
-          - 'distribution_major_version'
-        filter:
-          - 'ansible_distribution'
-          - 'ansible_distribution_major_version'
+    # - name: Collect only facts returned by facter
+    #   ansible.builtin.setup:
+    #     gather_subset:
+    #       - '!all'
+    #       - '!min'
+    #       - 'distribution'
+    #       - 'distribution_major_version'
+    #     filter:
+    #       - 'ansible_distribution'
+    #       - 'ansible_distribution_major_version'
 
     # - name: Run DISA RHEL8 STIG
     #   when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
@@ -52,28 +52,25 @@
     #     name: rhel8STIG
     #   register: rhel8_stig_reg
 
-    - name: Force all notified handlers to run at this point, not waiting for normal sync points
-      ansible.builtin.meta: flush_handlers
-      check_mode: false
+    # - name: Force all notified handlers to run at this point, not waiting for normal sync points
+    #   ansible.builtin.meta: flush_handlers
+    #   check_mode: false
 
-    - name: Debug
-      ansible.builtin.debug:
-        var: change_fact
-      check_mode: false
+    # - name: Debug
+    #   ansible.builtin.debug:
+    #     var: change_fact
+    #   check_mode: false
 
     - name: Pause for 20 seconds to wait for handlers to flush
       ansible.builtin.pause:
         seconds: 20
 
-    - name: Set change status per host to pass to next playbook
-      #when: change_fact == true
+    - name: Add data to pass to next playbook
       ansible.builtin.set_stats:
         data:
           _hosts: "{{ _hosts | default([]) + [inventory_hostname] }}"
-          job_url: "{{ job_url }}"
-          job_id: "{{ job_id }}"
-        aggregate: false
-        per_host: true
-
+          _job_url: "{{ _job_url | default([]) + [job_url] }}"
+          _job_id: "{{ _job_id | default([]) + [job_id] }}"
+        aggregate: true
 
 ...
