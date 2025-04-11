@@ -70,11 +70,12 @@
       ansible.builtin.set_stats:
         data:
           _hosts: "{{ _hosts | default([]) + [inventory_hostname] }}"
-          job_url: "{{ job_url }}"
-          job_id: "{{ job_id }}"
         aggregate: true
 
-    # - name: Fail if variable change_fact is true
-    #   ansible.builtin.fail:
-    #     msg: change_fact is true
-    #   when: change_fact is defined and change_fact == true
+    - name: Add data to pass to next playbook
+      ansible.builtin.set_stats:
+        data:
+          job_url: "{{ job_url }}"
+          job_id: "{{ job_id }}"
+
+...
