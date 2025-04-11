@@ -25,14 +25,6 @@
       run_once: true
       delegate_to: localhost
 
-    - name: Derive the URL for the currently running job template
-      when: STIG_job
-      ansible.builtin.set_fact:
-        job_url: "{{ lookup('ansible.builtin.env', 'CONTROLLER_HOST', default=undef()) }}/execution/jobs/playbook/{{ STIG_job.results[0].id }}/output"
-      check_mode: false
-      run_once: true
-      delegate_to: localhost
-
     # - name: Collect only facts returned by facter
     #   ansible.builtin.setup:
     #     gather_subset:
@@ -69,7 +61,6 @@
       ansible.builtin.set_stats:
         data:
           _hosts: "{{ _hosts | default([]) + [inventory_hostname] }}"
-          _job_url: "{{ _job_url | default([]) + [job_url] }}"
           _job_id: "{{ _job_id | default([]) + [job_id] }}"
         aggregate: true
 
