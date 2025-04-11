@@ -44,13 +44,13 @@
           - 'ansible_distribution'
           - 'ansible_distribution_major_version'
 
-    - name: Run DISA RHEL8 STIG
-      when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
-      vars:
-        ignore_all_errors: True
-      ansible.builtin.include_role:
-        name: rhel8STIG
-      register: rhel8_stig_reg
+    # - name: Run DISA RHEL8 STIG
+    #   when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
+    #   vars:
+    #     ignore_all_errors: True
+    #   ansible.builtin.include_role:
+    #     name: rhel8STIG
+    #   register: rhel8_stig_reg
 
     - name: Force all notified handlers to run at this point, not waiting for normal sync points
       ansible.builtin.meta: flush_handlers
@@ -66,16 +66,14 @@
         seconds: 20
 
     - name: Set change status per host to pass to next playbook
-      when: change_fact == true
+      #when: change_fact == true
       ansible.builtin.set_stats:
         data:
           _hosts: "{{ _hosts | default([]) + [inventory_hostname] }}"
-        aggregate: true
-
-    - name: Add data to pass to next playbook
-      ansible.builtin.set_stats:
-        data:
           job_url: "{{ job_url }}"
           job_id: "{{ job_id }}"
+        aggregate: false
         per_host: true
+
+
 ...
