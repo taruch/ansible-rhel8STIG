@@ -25,33 +25,33 @@
       run_once: true
       delegate_to: localhost
 
-    # - name: Collect only facts returned by facter
-    #   ansible.builtin.setup:
-    #     gather_subset:
-    #       - '!all'
-    #       - '!min'
-    #       - 'distribution'
-    #       - 'distribution_major_version'
-    #     filter:
-    #       - 'ansible_distribution'
-    #       - 'ansible_distribution_major_version'
+    - name: Collect only facts returned by facter
+      ansible.builtin.setup:
+        gather_subset:
+          - '!all'
+          - '!min'
+          - 'distribution'
+          - 'distribution_major_version'
+        filter:
+          - 'ansible_distribution'
+          - 'ansible_distribution_major_version'
 
-    # - name: Run DISA RHEL8 STIG
-    #   when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
-    #   vars:
-    #     ignore_all_errors: True
-    #   ansible.builtin.include_role:
-    #     name: rhel8STIG
-    #   register: rhel8_stig_reg
+    - name: Run DISA RHEL8 STIG
+      when: (ansible_facts['distribution'] == "RedHat" and ansible_facts['distribution_major_version'] == "8")
+      vars:
+        ignore_all_errors: True
+      ansible.builtin.include_role:
+        name: rhel8STIG
+      register: rhel8_stig_reg
 
-    # - name: Force all notified handlers to run at this point, not waiting for normal sync points
-    #   ansible.builtin.meta: flush_handlers
-    #   check_mode: false
+    - name: Force all notified handlers to run at this point, not waiting for normal sync points
+      ansible.builtin.meta: flush_handlers
+      check_mode: false
 
-    # - name: Debug
-    #   ansible.builtin.debug:
-    #     var: change_fact
-    #   check_mode: false
+    - name: Debug
+      ansible.builtin.debug:
+        var: change_fact
+      check_mode: false
 
     - name: Pause for 20 seconds to wait for handlers to flush
       ansible.builtin.pause:
