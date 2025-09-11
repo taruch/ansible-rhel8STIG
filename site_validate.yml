@@ -1,5 +1,5 @@
 - name: DISA RHEL8 STIG from Jan 2025
-  hosts: "{{ _hosts | default('all') }}"
+  hosts: "{{ _hosts }}"
   gather_facts: false
   become: true
   vars:
